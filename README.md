@@ -1,2 +1,2 @@
 Launch school's course PY101
-Assignments will be pushed to this repo.
+Assignments and notes will be pushed to this repo.
