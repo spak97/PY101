@@ -1,0 +1,44 @@
+1. a function that returns the sum of two numbers
+
+set fx with params n1 and n2
+    return n1 + n2
+
+
+2. a function that takes a list of strings, and returns a string 
+that is all those strings concatenated together
+
+set fx with param list
+    return joined list
+
+3. a function that takes a list of integers, and returns a new list with every 
+other element from the original list, starting with the first element. 
+
+set fx with param list
+    set empty list result
+    for every even index in list:
+        append list[index] to result
+    return result
+
+4. a function that determines the index of the 3rd occurrence of a given character in a string. For instance, if the given character is 'x' and the string is 'axbxcdxex', the function should return 6 (the index of the 3rd 'x'). If the given character does not occur at least 3 times, return None.
+
+set fx with param string, character:
+    set counter = 0
+    index = []
+    for i in string:
+        if i == character:
+            counter += 1
+            index.append(i[i])
+
+    if counter >= 3:
+        return index[-1]
+
+5. a function that takes two lists of numbers and returns the result of merging the lists. The elements of the first list should become the elements at the even indexes of the returned list, while the elements of the second list should become the elements at the odd indexes.
+
+set fx params list1 list2
+    set empty result list
+    iterate through length of both lists
+        append list1 item[index]
+        append list2 item[index]
+    return result
+
+
