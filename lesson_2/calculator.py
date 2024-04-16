@@ -6,23 +6,45 @@
 def prompt(message):
     print(f"===> {message}")
 
+def invalid_number(number_str):
+    try:
+        int(number_str)
+    except ValueError:
+        return True
+    
+    return False
+
 prompt("Welcome to calc")
 input()
 prompt("Enter first number: ")
-n1 = int(input())
+n1 = input()
+
+while invalid_number(n1):
+    prompt("Invalid number")
+    n1 = input()
+
 prompt("Enter second number: ")
-n2 = int(input())
+n2 = input()
+
+while invalid_number(n2):
+    prompt("Invalid number")
+    n2 = input()
+
 prompt("Which operation? (+ - x /): ")
 operation = input()
 
+while operation not in ["+", "-", "x", "/"]:
+    prompt("You must choose + - x or /")
+    operation = input()
+
 match operation:
     case "+":
-        ans =  n1 + n2
+        ans =  int(n1) + int(n2)
     case "-":
-        ans = n1 - n2
+        ans = int(n1) - int(n2)
     case "x":
-        ans = n1 * n2
+        ans = int(n1) * int(n2)
     case "/":
-        ans = n1 / n2
+        ans = int(n1) / int(n2)
 
 prompt(f"The result is: {ans}") 

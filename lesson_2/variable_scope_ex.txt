@@ -1,0 +1,14 @@
+1. prints 5. num is global and functions have access to it.
+
+2. prints 5. On line 4, local variable num is initialized to 10. 
+
+3. prints 10 since global is used in the fx. global num variable is 
+    referenced in the fx.
+
+4. prints Hello World. Inner fx has access to outer_var.
+
+5. NameError. num is only defined in local variable and isn't accessible
+    outside of the fx.
+
+6. prints inner 1: 25, inner 2: 15. 25 is accessed in inner_func1
+    15 is accessed in inner_func2
