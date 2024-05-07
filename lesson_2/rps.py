@@ -14,6 +14,10 @@ def player_wins(player_choice, computer_choice):
     return computer_choice in WINNING_COMBOS[player_choice]
 
 def best_of_five():
+    player_count = 0
+    computer_count = 0
+
+    if player_wins()
     return
 
 def prompt(message):
