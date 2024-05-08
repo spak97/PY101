@@ -1,2 +1,2 @@
-def xor():
+def century(year):
     

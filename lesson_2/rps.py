@@ -16,9 +16,20 @@ def player_wins(player_choice, computer_choice):
 def best_of_five():
     player_count = 0
     computer_count = 0
+    winner = display_winner(choice, computer_choice)
 
-    if player_wins()
-    return
+    if "player win" in winner:
+        player_count += 1
+    elif "computer win" in winner:
+        computer_count += 1
+
+    if player_count == 3:
+        winner = "Player"
+        return winner
+    elif computer_count == 3:
+        winner = "Computer"
+        return winner
+
 
 def prompt(message):
     print(f"==> {message}")
@@ -27,14 +38,17 @@ def display_winner(player, computer):
     prompt(f"You chose {player}, computer chose {computer}")
 
     if player_wins(player, computer):
-        prompt("You win!")
+        prompt("You win this round!")
+        return "player win"
     elif player_wins(computer, player):
-        prompt("Computer wins!")
+        prompt("Computer wins this round!")
+        return "computer win"
     else:
-        prompt("It's a tie!")
+        prompt("It's a tie this round!")
+        return "tie"
 
 play_again = True
-win_count = 0
+final_winner = 0
 
 while play_again:
     prompt(f"Choose one: {", ".join(VALID_CHOICES)}")
@@ -46,11 +60,11 @@ while play_again:
 
     computer_choice = random.choice(VALID_CHOICES)
 
-    display_winner(choice, computer_choice)
+    best_of_five()
 
     prompt("Pick again, it's best of five!")
 
-
+    # if final winner has been decided
     prompt("Do you want to play again? (y/n)")
     answer = input().lower()
     while answer not in ['y', 'n']:    
