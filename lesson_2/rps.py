@@ -10,19 +10,25 @@ WINNING_COMBOS = {
     'S':    ['r',     's'],
 }
 
+
+player_count = 0
+computer_count = 0
+winner = ""
+
 def player_wins(player_choice, computer_choice):
     return computer_choice in WINNING_COMBOS[player_choice]
 
+
 def best_of_five():
-    player_count = 0
-    computer_count = 0
+    global player_count, computer_count, winner
     winner = display_winner(choice, computer_choice)
 
-    if "player win" in winner:
+    if "Player" in winner:
         player_count += 1
-    elif "computer win" in winner:
+    elif "Computer" in winner:
         computer_count += 1
 
+def determine_winner():
     if player_count == 3:
         winner = "Player"
         return winner
@@ -39,16 +45,15 @@ def display_winner(player, computer):
 
     if player_wins(player, computer):
         prompt("You win this round!")
-        return "player win"
+        return "Player"
     elif player_wins(computer, player):
         prompt("Computer wins this round!")
-        return "computer win"
+        return "Pomputer"
     else:
         prompt("It's a tie this round!")
         return "tie"
 
 play_again = True
-final_winner = 0
 
 while play_again:
     prompt(f"Choose one: {", ".join(VALID_CHOICES)}")
@@ -62,13 +67,23 @@ while play_again:
 
     best_of_five()
 
-    prompt("Pick again, it's best of five!")
+    print(determine_winner())
+
+    print(winner)
+    print(player_count)
+    print(computer_count)
 
     # if final winner has been decided
-    prompt("Do you want to play again? (y/n)")
-    answer = input().lower()
-    while answer not in ['y', 'n']:    
-        prompt("Please enter y or n")
+    if determine_winner() == "Player" or determine_winner() == "Computer":
+        prompt(f"{winner} is the final winner!")
+        prompt("Do you want to play again? (y/n)")
         answer = input().lower()
+        while answer not in ['y', 'n']:    
+            prompt("Please enter y or n")
+            answer = input().lower()
 
-    play_again = answer == 'y'
+        play_again = answer == 'y'
+        player_count = 0
+        computer_count = 0
+    
+    prompt("Pick again, it's best of five!")
