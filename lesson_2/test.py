@@ -1,6 +1,5 @@
-name = "Lisa"
+print("something" if True else "nothing")
 
-def name_func():
-    return name
+str = "hello John"
 
-print(name_func())
+print(str.capitalize())
